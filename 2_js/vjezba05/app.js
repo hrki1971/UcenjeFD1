@@ -18,7 +18,24 @@ switch(ocjena){
     break;
     default:
 
+    case 5:
 
+    const doBroja = Number(a);
+    if(!a){
+        rezultat.innerHtml = 'unesi broj';
+        return;
+    }
+    let s = '';
+    for(let i=1;i<=doBroja;i++){
+        console.log(i + ',');
+        if(i===doBroja){
+            s += i;
+        }else{
+            s += i + ',';
+        }
+    }
+rezultat.innerHtml = s;
+    break;
     
     
     

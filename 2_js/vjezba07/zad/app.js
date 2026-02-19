@@ -1,0 +1,267 @@
+
+const rezultat = document.getElementById('rezultat');
+document.getElementById('izvedi').addEventListener('click', () => {
+
+  const a = document.getElementById('a').value;
+  const b = document.getElementById('b').value;
+  const zadatak = document.getElementById('zadatak').value;
+
+  switch (zadatak) {
+    case '1':
+      // rješavanje 1. zadatak
+      //1. Za uneseni cijeli broj u polje A veći od 2 i manji od 10M ispiši da li je prim (prosti) broj ili ne.
+      const a1 = Number(a)
+    
+      if(!a1){
+          rezultat.innerHTML= 'Uneseni podatak nije broj';
+          return;
+      
+      }
+      
+      if(a1<2 || a1>10000000){
+        rezultat.innerHTML='uneseni broj mora biti između 2 i deset milijuna'
+        return;
+
+        
+      
+      }
+      
+      let prim = true;
+      let brojac = 1;
+      let cijeloBrojnoDjeljiv = 0;
+      for(let i = 2; i <a1; i++){
+        if(brojac++ % 1000 === 0){ // svaki tisućiti ispiši
+            console.log(brojac, a1,'%', i,'=', a1 & i);
+        }
+        
+        if(a1 & i===0){
+          cijeloBrojnoDjeljiv = i;
+          prim = false
+          break;
+          
+        }
+        
+      
+      }
+      if(prim){
+        rezultat.innerHTML = `${a1} je PRIM broj`
+      }else{
+        rezultat.innerHTML = `(${brojac}) ${a1} nije PRIM broj jer je cijelobrojno djeljiv s ${cijeloBrojnoDjeljiv}`
+      }
+
+
+
+      // kraj rješavanje 1. zadatak
+    break;
+    case '2':
+      // rješavanje 2. zadatka
+      // 2. Za uneseni cijeli broj u polje B veći od 2 i manji od 1000 ispiši da li je savršen broj ili ne.
+
+
+    const b1 = Number(b)
+      if(!b1){
+          rezultat.innerHTML= 'Uneseni podatak nije broj';
+          return;
+      
+      }
+      
+      if(b1 < 2 || b1 > 1000){
+        rezultat.innerHTML='Uneseni broj mora biti između 2 i tisuću'
+        return;
+      }
+     let suma = 0;
+     for( i=1; i<b1; i++){
+      if(b1%i===0){
+        suma += i;
+      }
+     }
+     if(suma===b1){
+      rezultat.innerHTML = `${b1} je savršen broj`
+
+     }else{rezultat.innerHTML = `${b1} nije savršen broj`
+
+     }
+
+        
+      
+      
+
+
+
+      // kraj rješavanje 2. zadatak
+    break;
+    case '3':
+      // rješavanje 3. zadatak
+      //3. Za uneseni cijeli broj u polje B veći od 2 i manji od 100 ispiši da li je Armstrongov broj ili ne.
+        const b2 = Number(b);
+      
+        if(!b2){
+          rezultat.innerHTML = 'uneseni podatak nije broj';
+          return;
+        }
+
+        if( b2<2 || b2>100){
+          rezultat.innerHTML = 'Uneseni broj mora biti između 2 i 100';
+          return;
+        }
+          let daLiJeAmstrong  = true;
+          let broj = b2 <= 2 || b2 < 100;
+             
+        if(daLiJeAmstrong(broj)){
+           
+        
+          let suma = 0;
+          let temp = broj;
+          let tekuca_cifra = 0;
+          while(broj > 0){
+            tekuca_cifra = broj % 10;
+            suma += tekuca_cifra * tekuca_cifra * tekuca_cifra;
+            broj /= 10;
+          }
+          if (suma == temp){
+            return true;
+
+          }else
+            return false;
+        }
+         function main() {
+          broj;
+          rezultat.innerHTML = 'Unesite broj za provjeru'; broj;
+          if (broj < 1){
+            rezultat.innerHTML = 'Broj mora > 0';
+          }else{
+            if(daLiJeAmstrong(broj)) {
+              rezultat.innerHTML = 'Uneseni broj je Amstrongov broj';
+            }else{
+              rezultat.innerHTML = 'Uneseni broj nije Amstrongov broj';
+
+            }
+          }
+          system("Pause");
+          return 0;
+
+         }
+
+        
+         
+        
+
+        
+
+
+
+
+
+      // kraj rješavanje 3. zadatak
+    break;
+    case '4':
+      // rješavanje 4. zadatak
+      // Za unesenu riječ u polje A provjerite da li je palindrom ili ne
+         // plindrom je ružan Edo ode na žur
+         //ružanedoodenažur
+         let s = '';
+        // debugger;
+         for(let i = 0;i<a.length;i++){
+          if(a[i]!=' '){
+            s+=a[i].toLowerCase();
+          }
+         }
+          console.log('s=',s)
+          let p = true;
+          let duljina = s.length
+          for (let i = 0; i < duljina / 2; i++) {
+              if (s[i] !== s[duljina - 1 - i]) {
+                  p = false; 
+                  break;// Čim nađe razliku, nije palindrom
+              }
+          }
+          if(p){
+            rezultat.innerHTML = 'izraz je palindrom'
+          }
+          else{
+            rezultat.innerHTML = 'nije palindrom'
+          }
+      // kraj rješavanje 4. zadatak
+    break;
+    case '5':
+      // rješavanje 5. zadatak
+
+      // kraj rješavanje 5. zadatak
+    break;
+    case '6':
+      // rješavanje 6. zadatak
+
+      // kraj rješavanje 6. zadatak
+    break;
+    case '7':
+      // rješavanje 7. zadatak
+
+      // kraj rješavanje 7. zadatak
+    break;
+
+    default:
+      rezultat.innerHTML = `Nepoznati zadatak ${zadatak}`;
+  }
+
+  
+ 
+  
+});
+const poveznica = document.getElementById('poveznica');
+poveznica.href='https://enciklopedija.hr/clanak/primbrojevi';
+document.getElementById('zadatak').addEventListener('change', (event) => {
+   switch (event.target.value) {
+    case '1':
+      poveznica.href='https://enciklopedija.hr/clanak/primbrojevi';
+    break;
+    case '2':
+      poveznica.href='https://www.enciklopedija.hr/clanak/savrseni-broj';
+    break;
+    case '3':
+      poveznica.href='https://hafura.wordpress.com/2017/09/13/armstrongov-broj-ispitni-zadatak/';
+    break;
+    case '4':
+      poveznica.href='https://www.enciklopedija.hr/clanak/palindrom';
+    break;
+    case '5':
+      poveznica.href='https://www.coursera.org/articles/what-are-stop-words';
+    break;
+    case '6':
+      poveznica.href='https://enciklopedija.hr/clanak/samoglasnik';
+    break;
+    case '7':
+      poveznica.href='https://hjp.znanje.hr/index.php?show=search_by_id&id=d1ZlWhU%3D';
+    break;
+    default:
+      poveznica.href='#';
+  }
+});
+
+
+
+const stopRijeci = [
+  'a', 'ako', 'ali', 'bi', 'bih', 'bila', 'bili', 'bilo', 'bio', 'bismo', 
+  'biste', 'biti', 'bumo', 'da', 'do', 'duž', 'ga', 'hoće', 'hoćemo', 'hoćete', 
+  'hoćeš', 'hoću', 'i', 'iako', 'idemo', 'ideš', 'ide', 'iz', 'iza', 'iznad', 
+  'ja', 'jako', 'jer', 'jesmo', 'jeste', 'jesu', 'je', 'kad', 'kada', 'kao', 
+  'kroz', 'li', 'me', 'mene', 'meni', 'mi', 'mimo', 'mene', 'moj', 'moja', 
+  'moje', 'mu', 'na', 'nad', 'nakon', 'nam', 'nama', 'nas', 'naš', 'naša', 
+  'naše', 'našu', 'ne', 'nego', 'neka', 'neki', 'nekog', 'neko', 'nema', 'netko', 
+  'neće', 'nećemo', 'nećete', 'nećeš', 'neću', 'ni', 'nije', 'nijedan', 'nikad', 
+  'nismo', 'niste', 'nisu', 'njega', 'njegov', 'njegova', 'njegovo', 'njemu', 'njen', 
+  'njena', 'njeno', 'njih', 'njihov', 'njihova', 'njihovo', 'njim', 'njima', 'njoj', 
+  'nju', 'o', 'od', 'odmah', 'on', 'ona', 'onaj', 'onam', 'onamo', 'one', 
+  'oni', 'ono', 'onolika', 'onoliko', 'onoliki', 'onoliku', 'ova', 'ovaj', 'ovdje', 
+  'ove', 'ovi', 'ovo', 'ovuda', 'pa', 'pak', 'po', 'pod', 'pored', 'poslije', 
+  'povrh', 'preko', 'pri', 'pred', 'prema', 'sa', 'sam', 'samo', 'se', 'sebe', 
+  'sebi', 'si', 'smo', 'ste', 'su', 'sve', 'svi', 'svog', 'svoj', 'svoja', 
+  'svoje', 'ta', 'taj', 'tako', 'tamo', 'te', 'tebe', 'tebi', 'ti', 'to', 
+  'točno', 'u', 'uz', 'vam', 'vama', 'vas', 'vaš', 'vaša', 'vaše', 'već', 
+  'vi', 'vrlo', 'za', 'zar', 'će', 'ćemo', 'ćete', 'ćeš', 'ću', 'što', 'the', 
+  'and', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 
+  'had', 'do', 'does', 'did', 'but', 'if', 'or', 'because', 'as', 'until', 
+  'while', 'of', 'at', 'by', 'for', 'with', 'about', 'against', 'between', 
+  'into', 'through', 'during', 'before', 'after', 'above', 'below', 'to', 
+  'from', 'up', 'down', 'in', 'out', 'on', 'off', 'over', 'under', 'again', 
+  'further', 'then', 'once'
+];

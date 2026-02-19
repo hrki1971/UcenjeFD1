@@ -21,54 +21,38 @@ document.getElementById('izvedi').addEventListener('click', () => {
 
       // kraj rješavanje 3. zadatak
     break;
+
     case '4':
-      // ulaz 3,14 izlaz 14
-      const x = parseFloat(a)
-      if(x){
-        rezultat.innerHTML='Niste unijeli dobru vrijednost'
-        return
-      }
-      const cijeliBroj = parseInt(a)
-      rezultat.innerHTML =( (x-cijeliBroj)*100);
+      rezultat.innerHTML=a.length
     
-
-
-
-    break;
-    case '5':
-      const y = Number(a)
-      if(!y){
-        rezultat.innerHTML = 'Niste unijeli broj'
-        return
-      }
-      if(y%2===0){
-        rezultat.innerHTML = 'Paran'
-      }else{
-        rezultat.innerHTML = 'Neparan'
-      }
-
-
-
-
+    
+    
       break;
 
-      case '6':
-        switch(a.toLowerCase()){
-          case 'jabuka':
-          case 'kruška':
-          case 'banana':
-            rezultat.innerHTML='voće je'
-            break
-            default:
-              rezultat.innerHTML = 'nisam siguran da li je voće'
+      case '5':
+        const doBroja = Number(a);
+
+        if(!a){
+          rezultat.innerHTML='Unesite broj';
+          return;
         }
+        let s = '';
+        for(let i=1;i<=doBroja;i++){
+          console.log(i + ',');
+          if(i===doBroja){
+            s += i;
+          }else{
+            s += i + ',';
+          }
 
-      break
+          }
+          
+        
+        rezultat.innerHTML = s;
 
-      case '7':
-      rezultat.innerHTML=a.length
 
-      break
+        break;
+
 
     default:
       rezultat.innerHTML = `Nepoznati zadatak ${zadatak}`;
