@@ -27,6 +27,5 @@ const sviKorisnici = [
         { id: 26, ime: "Borna", prezime: "Ćorić", datumUpisa: new Date(2025, 3, 25), bodovi: 79.90, placeno: true },
         { id: 27, ime: "Janica", prezime: "Kostelić", datumUpisa: new Date(2025, 1, 10), bodovi: 98.20, placeno: true },
         { id: 28, ime: "Ivica", prezime: "Olić", datumUpisa: new Date(2025, 5, 5), bodovi: 52.00, placeno: false },
-        { id: 29, ime: "Antonija", prezime: "Blaće", datumUpisa: new Date(2025, 8, 30), bodovi: 76.50, placeno: true },
-        { id: 30, ime: "Hrvoje", prezime:"Mitrić", datumUpisa: new Date(2025, 10 ,28), bodovi: 60.30, placeno:true}
+        { id: 29, ime: "Antonija", prezime: "Blaće", datumUpisa: new Date(2025, 8, 30), bodovi: 76.50, placeno: true }
     ];
