@@ -11,11 +11,11 @@ function* tijekUpoznavanja() {
         prikaziUnos: true 
     };
 
-    const godina = yield {
-        naslov:'Koliko imaš godina?',
-        opis:'Unesi broj godina',
-        prikaziUnos:true
-    }
+    const godine = yield { 
+        naslov: 'Koliko imaš godina?', 
+        opis: 'Napiši koliko imaš godina', 
+        prikaziUnos: true 
+    };
 
     // 2. KORAK: Tražimo grad (koristimo 'ime' dobiveno iz prethodnog koraka)
     const grad = yield { 
@@ -27,7 +27,7 @@ function* tijekUpoznavanja() {
     // 3. KORAK: Završna poruka
     return { 
         naslov: 'Sve je spremno!', 
-        opis: `Pozdrav za ${ime} (${godina}) iz grada ${grad}. Uspješno ste završili proces!`, 
+        opis: `Pozdrav za ${ime} (${godine}) iz grada ${grad}. Uspješno ste završili proces!`, 
         prikaziUnos: false,
         gotovo: true 
     };
@@ -42,16 +42,16 @@ const kontejnerUnosa = document.getElementById('kontejner-unosa');
 const poljeZaUnos = document.getElementById('polje-za-unos');
 
 let zadnjiUnosKorisnika = '';
-
+let prviPuta=true;
 /**
  * FUNKCIJA: izvršiSljedećiKorak
  * Poziva se na klik gumba i budi generator.
  */
 function izvrsiSljedeciKorak() {
-    setTimeout(() =>{
+    prviPuta=false;
+    setTimeout(() => {
         poljeZaUnos.focus();
-    },100)
-
+    }, 100);
     // Spremi što je korisnik upisao prije nego što krenemo na sljedeći yield
     zadnjiUnosKorisnika = poljeZaUnos.value;
     poljeZaUnos.value = ''; // Očisti polje za sljedeći put
@@ -86,9 +86,14 @@ function izvrsiSljedeciKorak() {
 
 gumbDalje.addEventListener('click', izvrsiSljedeciKorak);
 
+poljeZaUnos.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        izvrsiSljedeciKorak();
+    }
+});
 
-
-    
-
-
-
+window.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter' && prviPuta) {
+        izvrsiSljedeciKorak();
+    }
+});
