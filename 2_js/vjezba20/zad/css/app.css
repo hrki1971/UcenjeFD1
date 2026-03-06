@@ -1,7 +1,7 @@
 :root {
-    --primarna: #0d6efd;
+    --primarna: #007bff;
     --sekundarna: #6c757d;
-    --uspjeh: #198754;
+    --uspjeh: #28a745;
     --pozadina: #f4f7f6;
     --bijela: #ffffff;
     --sjena: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -9,38 +9,33 @@
 
 body {
     background-color: var(--pozadina);
-    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    display: flex;
-    justify-content: center;
 }
 
-[v-cloak] { display: none; } /* Sprječava titranje Vue koda pri učitavanju */
-
 .spremnik-kviza {
-    width: 100%;
-    max-width: 700px;
-    margin: 50px 20px;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 0 20px;
 }
 
 .kartica {
     background: var(--bijela);
-    padding: 2rem;
+    padding: 30px;
     border-radius: 15px;
     box-shadow: var(--sjena);
-    color: red;
 }
 
 .zaglavlje {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 20px;
 }
 
-.naslov { color: var(--primarna); margin: 0; }
+.naslov { margin: 0; color: var(--primarna); font-size: 1.5rem; }
 
-.znacka {
+.badge {
     background: var(--sekundarna);
     color: white;
     padding: 5px 12px;
@@ -48,48 +43,54 @@ body {
     font-size: 0.8rem;
 }
 
-/* Progres Bar */
+/* Progres bar */
 .progres-okvir {
     height: 10px;
     background: #e9ecef;
     border-radius: 5px;
+    margin-bottom: 25px;
     overflow: hidden;
-    margin-bottom: 20px;
 }
 
 .progres-traka {
     height: 100%;
     background: var(--primarna);
-    transition: width 0.4s ease;
+    transition: width 0.3s ease;
 }
 
-/* Odgovori */
+.tekst-pitanja {
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Gumbi */
 .popis-odgovora {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
 
 .gumb-odgovor {
-    padding: 15px;
     text-align: left;
-    background: white;
+    padding: 15px 20px;
+    background: var(--bijela);
     border: 2px solid #dee2e6;
     border-radius: 8px;
     cursor: pointer;
     font-size: 1rem;
-    transition: 0.2s;
+    transition: all 0.2s;
 }
 
 .gumb-odgovor:hover {
     border-color: var(--primarna);
-    background-color: #f8f9fa;
+    background: #f8f9fa;
 }
 
-/* Rezultati */
 .tekst-centar { text-align: center; }
+
 .veliki-rezultat {
-    font-size: 4rem;
+    font-size: 5rem;
     font-weight: bold;
     color: var(--primarna);
     margin: 20px 0;
@@ -104,11 +105,7 @@ body {
     border-radius: 8px;
     font-size: 1.1rem;
     cursor: pointer;
-    font-weight: bold;
+    margin-top: 20px;
 }
 
-.pitanje-text {
-    color: red;
-
-  
-}
+.gumb-akcija:hover { opacity: 0.9; }
